@@ -1,13 +1,17 @@
 #include "Fstream.cpp"
 #include "Imports.h"
 
-static std::shared_ptr<std::string> printPointer(std::string URL) {
+namespace PointPoint {
 
-	std::unique_ptr<std::string> GetURL = std::unique_ptr<std::string>(new std::string(URL));
+	static std::shared_ptr<std::string> printPointer(std::string URL) {
 
-	std::shared_ptr<std::string> url = std::move(GetURL);
-	
-	return url;
+		std::unique_ptr<std::string> GetURL = std::unique_ptr<std::string>(new std::string(URL));
+
+		std::shared_ptr<std::string> url = std::move(GetURL);
+
+		return url;
+	}
+
 }
 
 int main() {
@@ -26,7 +30,7 @@ int main() {
 
 	if (OPTION == "Y") {
 	
-		std::cout << "URL: " << *printPointer(URL);
+		std::cout << "URL: " << *PointPoint::printPointer(URL);
 
 		LofiMoodFile(URL);
 	} 
